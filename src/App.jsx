@@ -23,7 +23,7 @@ function App() {
     setResponses(prev => [...prev, userMessage]);
 
     try {
-      const response = await fetch('https://crispy-space-dollop-jr9pjvw4xvpf5r9g-5000.app.github.dev/api/proxy', {
+      const response = await fetch('https://chatwithdeepseek.onrender.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
