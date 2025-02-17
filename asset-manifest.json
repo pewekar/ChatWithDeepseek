@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ChatWithDeepseek/static/css/main.1a408451.css",
-    "main.js": "/ChatWithDeepseek/static/js/main.5f1870c6.js",
+    "main.js": "/ChatWithDeepseek/static/js/main.0375e82c.js",
     "static/js/488.0034413f.chunk.js": "/ChatWithDeepseek/static/js/488.0034413f.chunk.js",
     "index.html": "/ChatWithDeepseek/index.html",
     "main.1a408451.css.map": "/ChatWithDeepseek/static/css/main.1a408451.css.map",
-    "main.5f1870c6.js.map": "/ChatWithDeepseek/static/js/main.5f1870c6.js.map",
+    "main.0375e82c.js.map": "/ChatWithDeepseek/static/js/main.0375e82c.js.map",
     "488.0034413f.chunk.js.map": "/ChatWithDeepseek/static/js/488.0034413f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1a408451.css",
-    "static/js/main.5f1870c6.js"
+    "static/js/main.0375e82c.js"
   ]
 }
