@@ -1,8 +1,8 @@
 {
-  "name": "krutrim-frontend",
+  "name": "chatwithdeepseek",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://pewekar.github.io/krutrim-frontend",
+  "homepage": "https://pewekar.github.io/ChatWithDeepseek",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -12,7 +12,9 @@
   "dependencies": {
     "axios": "^1.7.9",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "express-session": "^1.18.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -27,7 +29,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pewekar/krutrim-frontend.git"
+    "url": "https://github.com/pewekar/ChatWithDeepseek.git"
   },
   "browserslist": [
     ">0.2%",
