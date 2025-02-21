@@ -9,6 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 app.post('/api/proxy', async (req, res) => {
+  console.log("Received request at /api/proxy");  // Debugging line
   const { apiKey, model, messages, stream } = req.body;
 
   try {
@@ -51,6 +52,6 @@ app.post('/api/proxy', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Proxy server running at http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Proxy server running on port ${PORT} and accessible publicly`);
 });
