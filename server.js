@@ -12,15 +12,21 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use(session({
-  secret: process.env.SESSION_SECRET,
+  secret: process.env.SESSION_SECRET || 'default_secret',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: true } // Set to true if using HTTPS
+  cookie: { secure: false } // Change to `true` if using HTTPS
 }));
 
 app.post('/api/proxy', async (req, res) => {
-  console.log("Received request at /api/proxy");  // Debugging line
-  const { apiKey, model, message, stream } = req.body;
+  console.log("Received request at /api/proxy");
+
+  const { apiKey, model, messages = [], stream } = req.body;
+
+  if (!apiKey) {
+    console.error("Proxy Error: API Key is missing");
+    return res.status(401).json({ error: "API Key is required" });
+  }
 
   // Initialize session messages if not already present
   if (!req.session.messages) {
@@ -30,27 +36,34 @@ app.post('/api/proxy', async (req, res) => {
   // Add the new user message to the session messages
   req.session.messages.push({
     role: 'user',
-    content: message
+    content: messages.length > 0 ? messages[messages.length - 1].content : ""
   });
 
-  // Add a prompt to fashion the response for mobile devices
+  // Keep only the last 10 messages to prevent memory overflow
+  if (req.session.messages.length > 10) {
+    req.session.messages.shift();
+  }
+
+  // Add a system prompt to fashion responses for mobile devices
   req.session.messages.unshift({
     role: 'system',
-    content: 'You are a helpful assistant. Please provide concise and mobile-friendly responses. Limit your chain of thought to 80 words. Limit your overall response to 200 words.',
+    content: 'You are a helpful assistant. Please provide concise and mobile-friendly responses. Limit your chain of thought to 80 words. Limit your overall response to 200 words.'
   });
 
   try {
+    console.log("Forwarding request to DeepSeek with API Key:", apiKey ? "✅ Present" : "❌ MISSING");
+
     const response = await axios({
       method: 'post',
       url: 'https://cloud.olakrutrim.com/v1/chat/completions',
       headers: {
         Authorization: `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       data: { 
         model, 
         messages: req.session.messages, 
-        stream
+        stream: stream || false
       },
       responseType: stream ? 'stream' : 'json',
     });
@@ -70,7 +83,8 @@ app.post('/api/proxy', async (req, res) => {
 
       response.data.on('error', (err) => {
         console.error('Stream Error:', err);
-        res.end(`data: [ERROR] ${err.message}\n\n`);
+        res.write(`data: [ERROR] ${err.message}\n\n`);
+        res.end();
       });
     } else {
       // Add the assistant's response to the session messages
