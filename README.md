@@ -1,70 +1,68 @@
-# GitHub Codespaces ♥️ React
+ChatWithDeepSeek
 
-Welcome to your shiny new Codespace running React! We've got everything fired up and running for you to explore React.
+🚀 Access DeepSeek on Krutrim Without Writing Code
 
-You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with the what you're seeing right now - where you go from here is up to you!
+Krutrim has announced amazing starter plans to access DeepSeek, making cutting-edge AI models more accessible than ever. However, API calls can feel daunting for non-technical users.
 
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
+To solve this, ChatWithDeepSeek provides a simple frontend that allows anyone to chat with DeepSeek models—no coding required!
 
-This project was bootstrapped for you with [Vite](https://vitejs.dev/).
+🎯 How to Get Started
 
-## Available Scripts
+1️⃣ Sign Up on Krutrim Cloud
 
-In the project directory, you can run:
+Register an account at Krutrim Cloud.
 
-### `npm start`
+2️⃣ Create an API Key
 
-We've already run this for you in the `Codespaces: server` terminal window below. If you need to stop the server for any reason you can just run `npm start` again to bring it back online.
+Sign in → Go to Models > API Keys.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000/](http://localhost:3000/) in the built-in Simple Browser (`Cmd/Ctrl + Shift + P > Simple Browser: Show`) to view your running application.
+Click Create Secret Key and copy it.
 
-The page will reload automatically when you make changes.\
-You may also see any lint errors in the console.
+Store the key safely (e.g., in a text file). You will need this to access DeepSeek.
 
-### `npm test`
+3️⃣ Fund Your Account
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Go to Billing > Add Credit.
 
-### `npm run build`
+Add a small amount (even ₹10 works to get started).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4️⃣ Start Chatting!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Visit 👉 ChatWithDeepSeek
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Paste your API key into the app.
 
-## Learn More
+Start interacting with DeepSeek models instantly!
 
-You can learn more in the [Vite documentation](https://vitejs.dev/guide/).
+⚙️ How It Works
 
-To learn Vitest, a Vite-native testing framework, go to [Vitest documentation](https://vitest.dev/guide/)
+The frontend is built with React and hosted on GitHub Pages.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The proxy server is hosted on Render, allowing secure API requests to DeepSeek.
 
-### Code Splitting
+Your API key is never stored on our servers—it remains in your browser during your session and is only transmitted securely to the DeepSeek service on Krutrim when making requests via HTTPS encryption.
 
-This section has moved here: [https://sambitsahoo.com/blog/vite-code-splitting-that-works.html](https://sambitsahoo.com/blog/vite-code-splitting-that-works.html)
+🛠️ Tech Stack
 
-### Analyzing the Bundle Size
+Frontend: React + TailwindCSS
 
-This section has moved here: [https://github.com/btd/rollup-plugin-visualizer#rollup-plugin-visualizer](https://github.com/btd/rollup-plugin-visualizer#rollup-plugin-visualizer)
+Backend: Express.js (Node.js proxy on Render)
 
-### Making a Progressive Web App
+Hosting: GitHub Pages (Frontend) + Render (Backend API Proxy)
 
-This section has moved here: [https://dev.to/hamdankhan364/simplifying-progressive-web-app-pwa-development-with-vite-a-beginners-guide-38cf](https://dev.to/hamdankhan364/simplifying-progressive-web-app-pwa-development-with-vite-a-beginners-guide-38cf)
+🤝 Contributing
 
-### Advanced Configuration
+Want to improve this project? Feel free to fork, contribute, or submit issues:
 
-This section has moved here: [https://vitejs.dev/guide/build.html#advanced-base-options](https://vitejs.dev/guide/build.html#advanced-base-options)
+GitHub Repo: ChatWithDeepSeek
 
-### Deployment
+📢 Feedback & Support
 
-This section has moved here: [https://vitejs.dev/guide/build.html](https://vitejs.dev/guide/build.html)
+Have questions or suggestions?
 
-### Troubleshooting
+Open an issue on GitHub.
 
-This section has moved here: [https://vitejs.dev/guide/troubleshooting.html](https://vitejs.dev/guide/troubleshooting.html)
+Reach out on LinkedIn or Twitter/X.
+
+Enjoy using ChatWithDeepSeek! 🚀
+
