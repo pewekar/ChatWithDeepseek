@@ -12,6 +12,12 @@ app.post('/api/proxy', async (req, res) => {
   console.log("Received request at /api/proxy");  // Debugging line
   const { apiKey, model, messages, stream } = req.body;
 
+  // Add a prompt to fashion the response for mobile devices
+  messages.unshift({
+    role: 'system',
+    content: 'You are a helpful assistant. Please provide concise and mobile-friendly responses. Limit your chain of thought to 80 words. Limit your overall response to 200 words.',
+  });
+
   try {
     const response = await axios({
       method: 'post',
