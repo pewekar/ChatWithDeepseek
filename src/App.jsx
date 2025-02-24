@@ -23,14 +23,14 @@ function App() {
     setResponses(prev => [...prev, userMessage]);
 
     try {
-      const response = await fetch('https://chatwithdeepseek.onrender.com', {
+      const response = await fetch('https://chatwithdeepseek.onrender.com/api/proxy', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           apiKey,
           model,
           messages: [
-            { role: 'system', content: 'You are a helpful assistant.' },
+            { role: 'system', content: 'You are a precise and professional assistant. Provide accurate, concise answers directly addressing the core question. Include background information only if explicitly requested. Focus on delivering clear, actionable responses without explaining your thought process, using filler phrases, or apologizing. Maintain a tone of professional brevity and helpfulness.' },
             userMessage,
           ],
           stream: true,
@@ -95,8 +95,9 @@ function App() {
   };
 
   return (
-    <div className="p-4 max-w-md mx-auto bg-gray-900 text-white shadow-md rounded-md">
-      <h1 className="text-2xl font-bold text-center mb-4">Krutrim DeepSeek Chat</h1>
+  <div className="min-h-screen flex items-center justify-center bg-gray-900">
+    <div className="p-4 w-full max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-5xl bg-gray-800 text-white shadow-lg rounded-lg">
+      <h1 className="text-2xl font-bold text-center mb-4">DeepSeek Chat</h1>
 
       <div className="mb-4">
         <label className="block text-sm mb-1">API Key:</label>
@@ -107,7 +108,9 @@ function App() {
           placeholder="Enter your API key"
           className="w-full p-2 border rounded text-black mb-1"
         />
-        <p className="text-xs text-gray-400">Your key is <span className="font-semibold">never stored</span> and <span className="font-semibold">never leaves your browser</span>. It is <span className="font-semibold">only kept during this session</span>.</p>
+        <p className="text-xs text-gray-400">
+          Your API key is <span className="font-semibold">never stored permanently</span>. It is temporarily used for this session and securely sent to Krutrim for processing.
+        </p>
       </div>
 
       <div className="mb-4">
@@ -142,6 +145,7 @@ function App() {
       />
       <button onClick={handleSend} className="w-full bg-purple-500 text-white p-2 rounded mt-2">Send Message</button>
     </div>
+  </div>
   );
 }
 
